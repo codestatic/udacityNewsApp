@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">News App</string>
+
+    // list items layout text place holders
+    <string name="publication_date">Publication Date</string>
+    <string name="contributor_name">Contributor Name</string>
+    <string name="content_summary">Content Summary is a snippet of the article for the reader to glimpse
+        and decide to click to be taken to the full article</string>
+    <string name="section_name">Section Name</string>
+    <string name="web_title">Web Title</string>
+</resources>
