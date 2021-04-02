@@ -26,8 +26,8 @@ public class NewsAdapter extends ArrayAdapter<News> {
             News currentNews = getItem(position);
 
             // finding text view for content summary
-            TextView webUrlTextView = (TextView) listItemView.findViewById(R.id.content_view);
-            webUrlTextView.setText(currentNews.getWebUrl());
+            TextView trailTextView = (TextView) listItemView.findViewById(R.id.content_view);
+            trailTextView.setText(currentNews.getTrailText());
 
             // finding text view for section name
             TextView sectionTextView = (TextView) listItemView.findViewById(R.id.section_name_view);
@@ -43,7 +43,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
             // finding text view for contributor name
             TextView contributorTextView = (TextView) listItemView.findViewById(R.id.contributor_name_view);
-            contributorTextView.setText(currentNews.getContributor());
+            contributorTextView.setText(currentNews.getByline());
 
             return listItemView;
         }

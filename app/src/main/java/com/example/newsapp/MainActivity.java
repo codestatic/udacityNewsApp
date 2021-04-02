@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -14,16 +15,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<News> news = new ArrayList<>();
-        news.add(new News("webUrl", "Technology", "New Teeth Make For Better Chewing", "Dec. 2019", "John Smith"));
-        news.add(new News("webUrl", "Technology", "New Teeth Make For Better Chewing", "Dec. 2019", "John Smith"));
-        news.add(new News("webUrl", "Technology", "New Teeth Make For Better Chewing", "Dec. 2019", "John Smith"));
-        news.add(new News("webUrl", "Technology", "New Teeth Make For Better Chewing", "Dec. 2019", "John Smith"));
+        ArrayList<News> news = NewsUtils.extractNews();
 
-        NewsAdapter adapter = new NewsAdapter(this, news);
+        NewsAdapter newsAdapter = new NewsAdapter(this, news);
 
-        ListView listView = (ListView) findViewById(R.id.list_view);
+        ListView newsListView = (ListView) findViewById(R.id.list_view);
 
-        listView.setAdapter(adapter);
+        newsListView.setAdapter(newsAdapter);
     }
+
 }
