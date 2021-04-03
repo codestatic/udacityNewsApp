@@ -23,18 +23,18 @@ public class NewsUtils {
             
             JSONObject root = new JSONObject(SAMPLE_JSON_RESPONSE);
 
-            JSONObject newsArray  = root.getJSONObject("response");
+            JSONObject response  = root.getJSONObject("response");
+            JSONArray results = response.getJSONArray("results");
 
-            for (int i = 0; i <newsArray.length() ; i++) {
+            for (int i = 0; i <results.length() ; i++) {
 
-                JSONObject currentNews = newsArray.getJSONObject(i);
-                JSONArray results = currentNews.getJSONArray("results");
+                JSONObject currentNews = results.getJSONObject(i);
 
-            String sectionName = results.getString("sectionName");
-            String webTitle = results.getString("webTitle");
-            int webPublicationDate = results.getInt("webPublicationDate");
-            String byline = results.getString("byline");
-            String trailText = results.getString("trailText");
+            String sectionName = currentNews.getString("sectionName");
+            String webTitle = currentNews.getString("webTitle");
+            String webPublicationDate = currentNews.getString("webPublicationDate");
+            String byline = currentNews.optString("byline");
+            String trailText = currentNews.optString("trailText");
 
                 News newsItems = new News (sectionName, webTitle, webPublicationDate, byline, trailText);
                 news.add(newsItems);

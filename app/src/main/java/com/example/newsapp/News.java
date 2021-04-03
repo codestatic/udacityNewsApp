@@ -6,13 +6,13 @@ public class News {
 
     private String mWebTitle;
 
-    private int mWebPublicationDate;
+    private String mWebPublicationDate;
 
     private String mByline;
 
     private String mTrailText;
 
-    public News(String sectionName, String webTitle, int webPublicationDate, String byline, String trailText) {
+    public News(String sectionName, String webTitle, String webPublicationDate, String byline, String trailText) {
         mSectionName = sectionName;
         mWebTitle = webTitle;
         mWebPublicationDate = webPublicationDate;
@@ -28,7 +28,7 @@ public class News {
         return mWebTitle;
     }
 
-    public int getWebPublicationDate() {
+    public String getWebPublicationDate() {
         return mWebPublicationDate;
     }
 
