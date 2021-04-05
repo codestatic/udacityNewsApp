@@ -14,41 +14,46 @@ import java.util.ArrayList;
 
 public class NewsAdapter extends ArrayAdapter<News> {
 
-        @NonNull
-        @Override
-        public View getView ( int position, @Nullable View convertView, @NonNull ViewGroup parent){
-            View listItemView = convertView;
-            if (listItemView == null) {
-                listItemView = LayoutInflater.from(getContext()).inflate(
-                        R.layout.list_items, parent, false);
-            }
+    public NewsAdapter(@NonNull Context context, ArrayList < News > news) {
+        super(context, 0, news);
+    }
 
-            News currentNews = getItem(position);
-
-            // finding text view for content summary
-            TextView trailTextView = (TextView) listItemView.findViewById(R.id.content_view);
-            trailTextView.setText(currentNews.getTrailText());
-
-            // finding text view for section name
-            TextView sectionTextView = (TextView) listItemView.findViewById(R.id.section_name_view);
-            sectionTextView.setText(currentNews.getSectionName());
-
-            // finding text view for news title
-            TextView titleTextView = (TextView) listItemView.findViewById(R.id.web_title_view);
-            titleTextView.setText(currentNews.getWebTitle());
-
-            // finding text view for publication date
-            TextView dateTextView = (TextView) listItemView.findViewById(R.id.publication_date_view);
-            dateTextView.setText(currentNews.getWebPublicationDate());
-
-            // finding text view for contributor name
-            TextView contributorTextView = (TextView) listItemView.findViewById(R.id.contributor_name_view);
-            contributorTextView.setText(currentNews.getByline());
-
-            return listItemView;
+    @NonNull
+    @Override
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        View listItemView = convertView;
+        if (listItemView == null) {
+            listItemView = LayoutInflater.from(getContext()).inflate(
+                    R.layout.list_items, parent, false);
         }
 
-    public NewsAdapter(@NonNull Context context, ArrayList<News> news) {
-        super(context, 0, news);
+        News currentNews = getItem(position);
+
+        // finding text view for content summary
+        TextView trailTextView = (TextView) listItemView.findViewById(R.id.content_view);
+        trailTextView.setText(currentNews.getBodyTextSummary());
+
+        // finding text view for section name
+        TextView sectionTextView = (TextView) listItemView.findViewById(R.id.section_name_view);
+        sectionTextView.setText(currentNews.getSectionName());
+
+        // finding text view for news title
+        TextView titleTextView = (TextView) listItemView.findViewById(R.id.web_title_view);
+        titleTextView.setText(currentNews.getWebTitle());
+
+        // finding text view for contributor name
+        TextView contributorTextView = (TextView) listItemView.findViewById(R.id.contributor_name_view);
+        contributorTextView.setText(currentNews.getByline());
+
+        // create the sub string for correct date
+        String originalDate = currentNews.getWebPublicationDate();
+
+        String dateSubstring = originalDate.substring(0, 10);
+
+            // finding text view for publication date
+            TextView dateLocationView = (TextView) listItemView.findViewById(R.id.publication_date_view);
+            dateLocationView.setText(dateSubstring);
+
+            return listItemView;
     }
 }
