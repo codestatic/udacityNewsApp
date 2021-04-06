@@ -8,4 +8,11 @@
         and decide to click to be taken to the full article</string>
     <string name="section_name">Section Name</string>
     <string name="web_title">Web Title</string>
+
+    // blank screen message
+    <string name="sorry_no_news">Sorry no news to report!</string>
+
+    // no internet message
+    <string name="no_internet">No Internet Connection</string>
+
 </resources>
