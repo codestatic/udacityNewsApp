@@ -39,7 +39,11 @@ public class News {
         return mByline;
     }
 
-    public String getTrailText() { return mTrailText; }
+    public String getTrailText() {
+        return mTrailText;
+    }
 
-    public String getWebUrl() { return mWebUrl; }
+    public String getWebUrl() {
+        return mWebUrl;
+    }
 }

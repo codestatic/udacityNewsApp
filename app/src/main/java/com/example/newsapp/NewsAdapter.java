@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class NewsAdapter extends ArrayAdapter<News> {
 
-    public NewsAdapter(@NonNull Context context, ArrayList < News > news) {
+    public NewsAdapter(@NonNull Context context, ArrayList<News> news) {
         super(context, 0, news);
     }
 
@@ -29,9 +29,11 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         News currentNews = getItem(position);
 
+        // gets original trail text form JSON parsing for summary text view
         String originalTrail = currentNews.getTrailText();
 
-        String trailFix = originalTrail.replaceAll("<p>|</p>|<strong>|</strong>|\n", "");
+        // removes web formatting tags
+        String trailFix = originalTrail.replaceAll("<p>|</p>|<strong>|</strong>|\n|<br>", "");
 
         // finding text view for content summary
         TextView trailTextView = (TextView) listItemView.findViewById(R.id.content_view);
@@ -54,10 +56,10 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         String dateSubstring = originalDate.substring(0, 10);
 
-            // finding text view for publication date
-            TextView dateLocationView = (TextView) listItemView.findViewById(R.id.publication_date_view);
-            dateLocationView.setText(dateSubstring);
+        // finding text view for publication date
+        TextView dateLocationView = (TextView) listItemView.findViewById(R.id.publication_date_view);
+        dateLocationView.setText(dateSubstring);
 
-            return listItemView;
+        return listItemView;
     }
 }
