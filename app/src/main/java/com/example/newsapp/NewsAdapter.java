@@ -29,9 +29,13 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         News currentNews = getItem(position);
 
+        String originalTrail = currentNews.getTrailText();
+
+        String trailFix = originalTrail.replaceAll("<p>|</p>|<strong>|</strong>|\n", "");
+
         // finding text view for content summary
         TextView trailTextView = (TextView) listItemView.findViewById(R.id.content_view);
-        trailTextView.setText(currentNews.getBodyTextSummary());
+        trailTextView.setText(trailFix);
 
         // finding text view for section name
         TextView sectionTextView = (TextView) listItemView.findViewById(R.id.section_name_view);

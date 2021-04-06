@@ -10,14 +10,17 @@ public class News {
 
     private String mByline;
 
-    private String mBodyTextSummary;
+    private String mTrailText;
 
-    public News(String sectionName, String webTitle, String webPublicationDate, String byline, String bodyTextSummary) {
+    private String mWebUrl;
+
+    public News(String sectionName, String webTitle, String webPublicationDate, String byline, String trailText, String webUrl) {
         mSectionName = sectionName;
         mWebTitle = webTitle;
         mWebPublicationDate = webPublicationDate;
         mByline = byline;
-        mBodyTextSummary = bodyTextSummary;
+        mTrailText = trailText;
+        mWebUrl = webUrl;
     }
 
     public String getSectionName() {
@@ -36,5 +39,7 @@ public class News {
         return mByline;
     }
 
-    public String getBodyTextSummary() { return mBodyTextSummary; }
+    public String getTrailText() { return mTrailText; }
+
+    public String getWebUrl() { return mWebUrl; }
 }
